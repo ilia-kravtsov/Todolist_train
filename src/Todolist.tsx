@@ -3,13 +3,15 @@ import {DataType, FilterType} from "./App";
 import s from './Todolist.module.css'
 
 export type TodolistType = {
+    id: string
     title: string
     data: DataType
-    removeItemData: (ItemID: string) => void
-    changeFilter: (value: FilterType) => void
-    addListItem: (newLiText: string) => void
-    changeItemStatus: (id: string, newDone: boolean) => void
     filter: FilterType
+    removeItemData: (ItemID: string, todoId: string) => void
+    addListItem: (newLiText: string, todoId: string) => void
+    changeFilter: (value: FilterType, todoId: string) => void
+    removeTodolist: (id: string) => void
+    changeItemStatus: (id: string, newDone: boolean, todoId: string) => void
 }
 
 export const Todolist: React.FC<TodolistType> = ({title, data, ...props}) => {
@@ -17,11 +19,11 @@ export const Todolist: React.FC<TodolistType> = ({title, data, ...props}) => {
     let [newLiText, setNewLiText] = useState<string>('')
     let [error, setError] = useState<string | null>(null)
 
-    const onFilterBtnClick = (filter: FilterType) => () => props.changeFilter(filter)
+    const onFilterBtnClick = (filter: FilterType) => () => props.changeFilter(filter, props.id)
     const onChangeInpForUser = (e: ChangeEvent<HTMLInputElement>) => setNewLiText(e.currentTarget.value)
     const onAddLiBtnClick = () => {
         if (newLiText.trim()) {
-            props.addListItem(newLiText.trim());
+            props.addListItem(newLiText.trim(), props.id);
             setNewLiText('')
         } else {
             setError('Write some')
@@ -33,10 +35,13 @@ export const Todolist: React.FC<TodolistType> = ({title, data, ...props}) => {
             onAddLiBtnClick()
         }
     }
+    const removeTodo = () => {
+        props.removeTodolist(props.id)
+    }
 
     return (
         <div>
-            <h3>{title}</h3>
+                <h3>{title}<button onClick={removeTodo}>x</button></h3>
             <div>
                 <input value={newLiText}
                        onChange={onChangeInpForUser}
@@ -50,10 +55,10 @@ export const Todolist: React.FC<TodolistType> = ({title, data, ...props}) => {
                 {data.map(item => {
 
                     const onClickLiItem = () => {
-                        props.removeItemData(item.id)
+                        props.removeItemData(item.id, props.id)
                     }
                     const onCheckBoxChange = (e: ChangeEvent<HTMLInputElement>) => {
-                        props.changeItemStatus(item.id, e.currentTarget.checked)
+                        props.changeItemStatus(item.id, e.currentTarget.checked, props.id)
                     }
 
                     return (
