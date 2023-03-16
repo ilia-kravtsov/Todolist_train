@@ -1,0 +1,24 @@
+.App {
+  padding: 30px;
+  display: flex;
+  font-family: 'Lora', serif;
+}
+
+.App > div {
+  margin-right: 50px;
+}
+
+button {
+  margin-left: 10px;
+  border-radius: 3px;
+  box-shadow: 2px 3px 5px 1px gray;
+  border: none;
+  padding: 5px;
+  font-family: 'Lora', serif;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
