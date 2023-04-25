@@ -1,24 +1,28 @@
 import React, {ChangeEvent, FC, useState, KeyboardEvent} from 'react';
-import {FilterValuesType, TodolistsType} from "../types/types";
+import {FilterValuesType, TodolistType} from "../types/types";
 
-export const Todolist: FC<TodolistsType> = ({
-                                                title,
-                                                tasks,
-                                                removeTask,
-                                                changeFilter,
-                                                addTask,
-                                                changeTaskStatus,
-                                                filter
-}) => {
+export const Todolist: FC<TodolistType> = ({
+                                               title,
+                                               tasks,
+                                               removeTask,
+                                               changeFilter,
+                                               addTask,
+                                               changeTaskStatus,
+                                               filter,
+                                               todolistId,
+                                               removeTodolist
+                                           }) => {
 
     let [value, setValue] = useState<string>('')
     let [error, setError] = useState<string | null>(null)
-    console.log('Todolist')
-    const removeTaskHandler = (id: string) => removeTask(id)
-    const callbackFilter = (filterValue: FilterValuesType) => () => changeFilter(filterValue)
+
+    const removeTodo = () => {
+        removeTodolist(todolistId)
+    }
+    const callbackFilter = (filterValue: FilterValuesType) => () => changeFilter(filterValue, todolistId)
     const addTaskCallback = () => {
-        if(value.trim()) {
-            addTask(value.trim())
+        if (value.trim()) {
+            addTask(value.trim(), todolistId)
             setValue('')
         } else {
             setError('Title is required')
@@ -29,11 +33,11 @@ export const Todolist: FC<TodolistsType> = ({
         setError(null)
         if (e.key === 'Enter') addTaskCallback()
     }
-
-
+    console.log(tasks)
     return (
         <div>
             <h3>{title}</h3>
+            <button onClick={removeTodo}>x</button>
             <div>
                 <input value={value}
                        onChange={onInputChange}
@@ -45,33 +49,36 @@ export const Todolist: FC<TodolistsType> = ({
             </div>
             <ul>
                 {tasks.map(task => {
-
-                    const onChangeBox = (e: ChangeEvent<HTMLInputElement>) => {
-                        changeTaskStatus(task.id, e.currentTarget.checked)
-                    }
-
-                    return (
-                        <li key={task.id} className={task.isDone ? 'is-done' : ''}>
-                            <input type="checkbox"
-                                   checked={task.isDone}
-                                   onChange={onChangeBox}
-                            />
-                            <span>{task.title}</span>
-                            <button onClick={() => removeTaskHandler(task.id)}>x</button>
-                        </li>
-                    )
-                })}
+                        const onChangeBox = (e: ChangeEvent<HTMLInputElement>) => {
+                            changeTaskStatus(task.id, e.currentTarget.checked, todolistId)
+                        }
+                        const removeTaskHandler = () => removeTask(task.id, todolistId)
+                        return (
+                            <li key={task.id} className={task.isDone ? 'is-done' : ''}>
+                                <input type="checkbox"
+                                       checked={task.isDone}
+                                       onChange={onChangeBox}
+                                />
+                                <span>{task.title}</span>
+                                <button onClick={removeTaskHandler}>x</button>
+                            </li>
+                        )
+                    })
+                }
             </ul>
-            <div>
+            <div className={'buttonContainer'}>
                 <button onClick={callbackFilter('all')}
                         className={filter === 'all' ? 'active-filter' : ''}
-                >All</button>
+                >All
+                </button>
                 <button onClick={callbackFilter('active')}
                         className={filter === 'active' ? 'active-filter' : ''}
-                >Active</button>
+                >Active
+                </button>
                 <button onClick={callbackFilter('completed')}
                         className={filter === 'completed' ? 'active-filter' : ''}
-                >Completed</button>
+                >Completed
+                </button>
             </div>
         </div>
     );

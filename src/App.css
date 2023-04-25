@@ -9,7 +9,13 @@
 
 button {
   margin-left: 10px;
+  border: 1px solid lightgrey;
 }
+
+input {
+  border: 1px solid lightgrey;
+}
+
 
 .error {
   border: red 1px solid;
@@ -25,5 +31,15 @@ button {
 
 .is-done {
   opacity: 0.5;
-text-decoration: line-through;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
 }
