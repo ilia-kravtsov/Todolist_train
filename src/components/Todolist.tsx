@@ -1,7 +1,17 @@
 import React, {FC} from 'react';
-import {TodolistsType} from "../types/types";
+import {FilterValuesType, TodolistsType} from "../types/types";
 
-export const Todolist: FC<TodolistsType> = ({title, tasks}) => {
+export const Todolist: FC<TodolistsType> = ({
+                                                title,
+                                                tasks,
+                                                removeTask,
+                                                changeFilter
+}) => {
+
+    const removeTaskHandler = (id: string) => removeTask(id)
+
+    const callbackFilter = (filterValue: FilterValuesType) => () => changeFilter(filterValue)
+
     return (
         <div>
             <h3>{title}</h3>
@@ -10,14 +20,20 @@ export const Todolist: FC<TodolistsType> = ({title, tasks}) => {
                 <button>+</button>
             </div>
             <ul>
-                <li><input type="checkbox" checked={tasks[0].isDone}/> <span>{tasks[0].title}</span></li>
-                <li><input type="checkbox" checked={tasks[1].isDone}/> <span>{tasks[1].title}</span></li>
-                <li><input type="checkbox" checked={tasks[2].isDone}/> <span>{tasks[2].title}</span></li>
+                {tasks.map(task => {
+                    return (
+                        <li>
+                            <input type="checkbox" checked={task.isDone}/>
+                            <span>{task.title}</span>
+                            <button onClick={() => removeTaskHandler(task.id)}>x</button>
+                        </li>
+                    )
+                })}
             </ul>
             <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
+                <button onClick={callbackFilter('all')}>All</button>
+                <button onClick={callbackFilter('active')}>Active</button>
+                <button onClick={callbackFilter('completed')}>Completed</button>
             </div>
         </div>
     );
