@@ -3,6 +3,7 @@ export type TodolistsType = {
     tasks: TasksType
     removeTask: (id: string) => void
     changeFilter: (value: FilterValuesType) => void
+    addTask: (title: string) => void
 }
 
 export type TaskType = {
