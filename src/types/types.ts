@@ -8,6 +8,8 @@ export type TodolistType = {
     changeFilter: (value: FilterValuesType, todolistId: string) => void
     addTask: (title: string, todolistId: string) => void
     changeTaskStatus: (id: string, newIsDone: boolean, todolistId: string) => void
+    changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
+    changeTodolistTitle: (newTitle: string, todolistId: string) => void
 }
 
 export type TodolistsType = {
@@ -22,8 +24,17 @@ export type TaskType = {
     isDone: boolean
 }
 
+export type AddItemFromType = {
+    addItem: (value: string) => void
+}
+
 export type TasksType = {
     [key: string]: Array<TaskType>
+}
+
+export type EditableTitleType = {
+    title: string
+    onChange: (newTitle: string) => void
 }
 
 //export type TasksType = Array<TaskType>

@@ -1,5 +1,7 @@
 import React, {ChangeEvent, FC, useState, KeyboardEvent} from 'react';
 import {FilterValuesType, TodolistType} from "../types/types";
+import AddItemFrom from "./AddItemFrom";
+import {EditableTitle} from "./EditableTitle";
 
 export const Todolist: FC<TodolistType> = ({
                                                title,
@@ -10,60 +12,53 @@ export const Todolist: FC<TodolistType> = ({
                                                changeTaskStatus,
                                                filter,
                                                todolistId,
-                                               removeTodolist
+                                               removeTodolist,
+                                               changeTaskTitle,
+                                               changeTodolistTitle
                                            }) => {
-
-    let [value, setValue] = useState<string>('')
-    let [error, setError] = useState<string | null>(null)
 
     const removeTodo = () => {
         removeTodolist(todolistId)
     }
     const callbackFilter = (filterValue: FilterValuesType) => () => changeFilter(filterValue, todolistId)
-    const addTaskCallback = () => {
-        if (value.trim()) {
-            addTask(value.trim(), todolistId)
-            setValue('')
-        } else {
-            setError('Title is required')
-        }
+    const addTaskCallback = (value: string) => {
+        addTask(value, todolistId)
     }
-    const onInputChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.currentTarget.value)
-    const onInputKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null)
-        if (e.key === 'Enter') addTaskCallback()
+    const changeTodolistTitleCallback = (newTitle: string) => {
+        changeTodolistTitle(newTitle, todolistId)
     }
-    console.log(tasks)
+
+
     return (
         <div>
-            <h3>{title}</h3>
-            <button onClick={removeTodo}>x</button>
-            <div>
-                <input value={value}
-                       onChange={onInputChange}
-                       onKeyDown={onInputKeyPress}
-                       className={error ? 'error' : ''}
-                />
-                <button onClick={addTaskCallback}>+</button>
-                {error && <div className={'error-message'}>{error}</div>}
+            <div className={'titleBtn'}>
+                <EditableTitle title={title} onChange={changeTodolistTitleCallback}/>
+                <button onClick={removeTodo}>x</button>
             </div>
+            <AddItemFrom addItem={addTaskCallback}/>
             <ul>
-                {tasks.map(task => {
+                {tasks.length
+                    ? tasks.map(task => {
                         const onChangeBox = (e: ChangeEvent<HTMLInputElement>) => {
                             changeTaskStatus(task.id, e.currentTarget.checked, todolistId)
                         }
                         const removeTaskHandler = () => removeTask(task.id, todolistId)
+
+                        const onChangeTitleCallback = (newTitle: string) => {
+                            changeTaskTitle(task.id, newTitle, todolistId)
+                        }
                         return (
                             <li key={task.id} className={task.isDone ? 'is-done' : ''}>
                                 <input type="checkbox"
                                        checked={task.isDone}
                                        onChange={onChangeBox}
                                 />
-                                <span>{task.title}</span>
+                                <EditableTitle title={task.title} onChange={onChangeTitleCallback}/>
                                 <button onClick={removeTaskHandler}>x</button>
                             </li>
                         )
                     })
+                    : <div>Add your task</div>
                 }
             </ul>
             <div className={'buttonContainer'}>
