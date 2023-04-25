@@ -1,7 +1,10 @@
-import React, {ChangeEvent, FC, useState, KeyboardEvent} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import {FilterValuesType, TodolistType} from "../types/types";
 import AddItemFrom from "./AddItemFrom";
 import {EditableTitle} from "./EditableTitle";
+import {Button, ButtonGroup, Checkbox} from "@mui/material";
+import { Delete } from '@mui/icons-material'
+import { IconButton } from '@mui/material'
 
 export const Todolist: FC<TodolistType> = ({
                                                title,
@@ -31,10 +34,12 @@ export const Todolist: FC<TodolistType> = ({
 
     return (
         <div>
-            <div className={'titleBtn'}>
+            <h3 className={'titleBtn'}>
                 <EditableTitle title={title} onChange={changeTodolistTitleCallback}/>
-                <button onClick={removeTodo}>x</button>
-            </div>
+                <IconButton onClick={removeTodo}>
+                    <Delete/>
+                </IconButton>
+            </h3>
             <AddItemFrom addItem={addTaskCallback}/>
             <ul>
                 {tasks.length
@@ -49,12 +54,14 @@ export const Todolist: FC<TodolistType> = ({
                         }
                         return (
                             <li key={task.id} className={task.isDone ? 'is-done' : ''}>
-                                <input type="checkbox"
+                                <Checkbox
                                        checked={task.isDone}
                                        onChange={onChangeBox}
                                 />
                                 <EditableTitle title={task.title} onChange={onChangeTitleCallback}/>
-                                <button onClick={removeTaskHandler}>x</button>
+                                <IconButton onClick={removeTaskHandler}>
+                                    <Delete/>
+                                </IconButton>
                             </li>
                         )
                     })
@@ -62,18 +69,20 @@ export const Todolist: FC<TodolistType> = ({
                 }
             </ul>
             <div className={'buttonContainer'}>
-                <button onClick={callbackFilter('all')}
-                        className={filter === 'all' ? 'active-filter' : ''}
-                >All
-                </button>
-                <button onClick={callbackFilter('active')}
-                        className={filter === 'active' ? 'active-filter' : ''}
-                >Active
-                </button>
-                <button onClick={callbackFilter('completed')}
-                        className={filter === 'completed' ? 'active-filter' : ''}
-                >Completed
-                </button>
+                <ButtonGroup>
+                    <Button onClick={callbackFilter('all')}
+                            variant={filter === 'all' ? 'outlined' : 'contained'}
+                    >All
+                    </Button>
+                    <Button onClick={callbackFilter('active')}
+                            variant={filter === 'active' ? 'outlined' : 'contained'}
+                    >Active
+                    </Button>
+                    <Button onClick={callbackFilter('completed')}
+                            variant={filter === 'completed' ? 'outlined' : 'contained'}
+                    >Completed
+                    </Button>
+                </ButtonGroup>
             </div>
         </div>
     );

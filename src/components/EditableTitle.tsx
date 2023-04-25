@@ -1,5 +1,6 @@
 import React, {FC, useState} from 'react';
 import {EditableTitleType} from "../types/types";
+import {TextField} from "@mui/material";
 
 export const EditableTitle: FC<EditableTitleType> = ({title, onChange}) => {
     let [editMode, setEditMode] = useState<boolean>(false)
@@ -15,10 +16,11 @@ export const EditableTitle: FC<EditableTitleType> = ({title, onChange}) => {
     }
 
     return editMode
-        ? <input value={newTitle}
+        ? <TextField value={newTitle}
                  onBlur={FixMode}
                  autoFocus
                  onChange={(e) => setNewTitle(e.currentTarget.value)}
+                     variant={'filled'}
         />
         : <span onDoubleClick={ChangeMode}>{title}</span>
 };

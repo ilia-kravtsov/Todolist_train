@@ -1,5 +1,7 @@
 import React, {ChangeEvent, FC, KeyboardEvent, useState} from 'react';
 import {AddItemFromType} from "../types/types";
+import {IconButton, TextField} from "@mui/material";
+import {AddBox} from "@mui/icons-material";
 
 const AddItemFrom: FC<AddItemFromType> = ({addItem}) => {
 
@@ -22,13 +24,20 @@ const AddItemFrom: FC<AddItemFromType> = ({addItem}) => {
 
     return (
         <div className={'titleBtn'}>
-            <input value={value}
-                   onChange={onInputChange}
-                   onKeyDown={onInputKeyPress}
-                   className={error ? 'error' : ''}
-            />
-            <button onClick={addTaskCallback}>+</button>
-            {error && <div className={'error-message'}>{error}</div>}
+                <TextField value={value}
+                           variant={'outlined'}
+                           onChange={onInputChange}
+                           onKeyDown={onInputKeyPress}
+                           error={!!error}
+                           size={'small'}
+                           label={'Enter your title'}
+                           helperText={error}
+                />
+                {error && <div className={'error-message'}></div>}
+            <IconButton onClick={addTaskCallback}
+            >
+                <AddBox/>
+            </IconButton>
         </div>
     );
 };

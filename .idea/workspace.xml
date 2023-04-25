@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="tuesday_1_done">
-      <change afterPath="$PROJECT_DIR$/src/components/AddItemFrom.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/EditableTitle.tsx" afterDir="false" />
+    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="tuesday_2_done">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemFrom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemFrom.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditableTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditableTitle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682410545456</updated>
       <workItem from="1682410548711" duration="8765000" />
-      <workItem from="1682424151517" duration="8160000" />
+      <workItem from="1682424151517" duration="11003000" />
     </task>
     <task id="LOCAL-00001" summary="monday_1_done">
       <created>1682413023932</created>
@@ -94,7 +96,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682428929669</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="tuesday_2_done">
+      <created>1682434162173</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682434162173</updated>
+    </task>
+    <task id="LOCAL-00007" summary="tuesday_2_done">
+      <created>1682434173095</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682434173095</updated>
+    </task>
+    <task id="LOCAL-00008" summary="tuesday_2_done">
+      <created>1682434198362</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682434198362</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,18 +141,7 @@
     <MESSAGE value="monday_3_done" />
     <MESSAGE value="monday_4_done" />
     <MESSAGE value="tuesday_1_done" />
-    <option name="LAST_COMMIT_MESSAGE" value="tuesday_1_done" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/App.tsx</url>
-          <line>68</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="tuesday_2_done" />
+    <option name="LAST_COMMIT_MESSAGE" value="tuesday_2_done" />
   </component>
 </project>

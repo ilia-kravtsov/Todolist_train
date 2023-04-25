@@ -4,6 +4,8 @@ import {Todolist} from "./Todolist";
 import {v1} from "uuid";
 import {FilterValuesType, TasksType, TaskType, TodolistsType} from "../types/types";
 import AddItemFrom from "./AddItemFrom";
+import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
+import {Menu} from "@mui/icons-material";
 
 function App() {
 
@@ -18,12 +20,12 @@ function App() {
     )
 
     let [tasks, setTasks] = useState<TasksType>({
-        [todolistId_1] : [
+        [todolistId_1]: [
             {id: v1(), title: 'Pushkin', isDone: false},
             {id: v1(), title: 'Lermontov', isDone: true},
             {id: v1(), title: 'Bulgakov', isDone: false},
         ],
-        [todolistId_2] : [
+        [todolistId_2]: [
             {id: v1(), title: 'Pushkin', isDone: false},
             {id: v1(), title: 'Lermontov', isDone: true},
             {id: v1(), title: 'Bulgakov', isDone: false},
@@ -31,7 +33,10 @@ function App() {
     })
 
     const changeTodolistFilter = (filterValue: FilterValuesType, todolistId: string) => {
-        let newTodoArray = todolists.map(todolist => todolist.id === todolistId ? {...todolist, filter: filterValue } : todolist)
+        let newTodoArray = todolists.map(todolist => todolist.id === todolistId ? {
+            ...todolist,
+            filter: filterValue
+        } : todolist)
         setTodolists(newTodoArray)
     }
     const removeTodolist = (todolistId: string) => {
@@ -46,7 +51,10 @@ function App() {
         })
     }
     const changeTodolistTitle = (newTitle: string, todolistId: string) => {
-        let newTodoArray = todolists.map(todolist => todolist.id === todolistId ? {...todolist, title: newTitle } : todolist)
+        let newTodoArray = todolists.map(todolist => todolist.id === todolistId ? {
+            ...todolist,
+            title: newTitle
+        } : todolist)
         setTodolists(newTodoArray)
     }
 
@@ -70,7 +78,7 @@ function App() {
 
     const getFilteredTasks = (newTasks: Array<TaskType>, filter: FilterValuesType): Array<TaskType> => {
 
-        switch(filter) {
+        switch (filter) {
             case 'active':
                 return newTasks.filter(task => !task.isDone)
             case 'completed':
@@ -81,9 +89,10 @@ function App() {
     }
 
     const todolistComponents = todolists.length
-        ?  todolists.map(todolist => {
+        ? todolists.map(todolist => {
 
-            return <Todolist title={todolist.title}
+            return <Grid item>
+                <Paper style={{padding: '10px'}}><Todolist title={todolist.title}
                              tasks={getFilteredTasks(tasks[todolist.id], todolist.filter)}
                              removeTask={removeTask}
                              changeFilter={changeTodolistFilter}
@@ -95,18 +104,35 @@ function App() {
                              todolistId={todolist.id}
                              changeTaskTitle={changeTaskTitle}
                              changeTodolistTitle={changeTodolistTitle}
-            />
+                /></Paper>
+            </Grid>
         })
         : <span>Create your first Todolist</span>
 
     return (
         <div className="App">
-            <AddItemFrom addItem={addTodolist}/>
-            {todolistComponents}
+            <AppBar position={'static'}>
+                <Toolbar>
+                    <IconButton edge={'start'} aria-label={'menu'}>
+                        <Menu/>
+                    </IconButton>
+                    <Typography variant={'h6'}>
+                        Todolist
+                    </Typography>
+                    <Button>Login</Button>
+                </Toolbar>
+            </AppBar>
+            <Container fixed>
+                <Grid container>
+                    <AddItemFrom addItem={addTodolist}/>
+                </Grid>
+                <Grid container>
+                    {todolistComponents}
+                </Grid>
+            </Container>
         </div>
     );
 }
 
 export default App;
 
-//
