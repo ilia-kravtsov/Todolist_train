@@ -1,35 +1,48 @@
 import React, {FC, memo, useCallback} from 'react';
-import {FilterValuesType, TaskType, TodolistType} from "../types/types";
+import {FilterValuesType, TasksType, TaskType, TodolistType} from "../types/types";
 import AddItemFrom from "./AddItemFrom";
 import {EditableTitle} from "./EditableTitle";
 import {Button, ButtonGroup} from "@mui/material";
-import { Delete } from '@mui/icons-material'
-import { IconButton } from '@mui/material'
+import {Delete} from '@mui/icons-material'
+import {IconButton} from '@mui/material'
 import {Task} from "./Task";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../state/store";
+import {addTaskAC} from "../state/tasks-reducer";
+import {changeTodolistFilterAC, changeTodolistTitleAC, RemoveTodolistAC} from "../state/todolists-reducer";
 
 export const Todolist: FC<TodolistType> = memo(({
-                                               title,
-                                               tasks,
-                                               changeFilter,
-                                               addTask,
-                                               filter,
-                                               todolistId,
-                                               removeTodolist,
-                                               changeTodolistTitle
-                                           }) => {
+                                                    title,
+                                                    filter,
+                                                    todolistId,
+                                                }) => {
     console.log('Todolist')
+
+    const tasks = useSelector<AppRootStateType, TasksType>(state => state.tasks)
+    const dispatch = useDispatch()
+
+    const addTask = useCallback((title: string) => {
+        dispatch(addTaskAC(title, todolistId))
+    }, [])
+
+    const changeTodolistFilter = useCallback((filterValue: FilterValuesType, todolistId: string) => {
+        dispatch(changeTodolistFilterAC(todolistId, filterValue))
+    }, [])
+    const changeTodolistTitle = useCallback((newTitle: string, todolistId: string) => {
+        dispatch(changeTodolistTitleAC(todolistId, newTitle))
+    }, [])
+    const removeTodolist = useCallback((todolistId: string) => {
+        dispatch(RemoveTodolistAC(todolistId))
+    }, [])
     const removeTodo = useCallback(() => {
         removeTodolist(todolistId)
     }, [todolistId])
-    const callbackFilter = useCallback((filterValue: FilterValuesType) => () => changeFilter(filterValue, todolistId),[todolistId])
 
-    const addTaskCallback = useCallback((value: string) => {
-        addTask(value, todolistId)
-    },[todolistId])
+    const callbackFilter = useCallback((filterValue: FilterValuesType) => () => changeTodolistFilter(filterValue, todolistId), [todolistId])
 
     const changeTodolistTitleCallback = useCallback((newTitle: string) => {
         changeTodolistTitle(newTitle, todolistId)
-    },[changeTodolistTitle, todolistId])
+    }, [changeTodolistTitle, todolistId])
 
     const getFilteredTasks = (newTasks: Array<TaskType>, filter: FilterValuesType): Array<TaskType> => {
         switch (filter) {
@@ -50,7 +63,7 @@ export const Todolist: FC<TodolistType> = memo(({
                     <Delete/>
                 </IconButton>
             </h3>
-            <AddItemFrom addItem={addTaskCallback}/>
+            <AddItemFrom addItem={addTask}/>
             <div>
                 {filteredTasks.length
                     ? filteredTasks.map(task => <Task key={task.id}

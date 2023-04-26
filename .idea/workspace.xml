@@ -1,36 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="wednesday_3_done">
-      <change afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.storybook/preview.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/AddItemForm.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/Button.stories.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/Header.stories.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/Introduction.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/Page.stories.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/Page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/code-brackets.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/colors.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/comments.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/direction.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/flow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/plugin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/repo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/assets/stackalt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/stories/page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="wednesday_4_predone">
       <change beforePath="$PROJECT_DIR$/src/components/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppWithRedux.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditableTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditableTitle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +138,7 @@
       <workItem from="1682410548711" duration="8765000" />
       <workItem from="1682424151517" duration="11896000" />
       <workItem from="1682487352711" duration="13548000" />
-      <workItem from="1682510466479" duration="13383000" />
+      <workItem from="1682510466479" duration="14066000" />
     </task>
     <task id="LOCAL-00001" summary="monday_1_done">
       <created>1682413023932</created>
@@ -257,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682523066000</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="wednesday_4_predone">
+      <created>1682527070678</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682527070678</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +268,7 @@
     <MESSAGE value="wednesday_1_done" />
     <MESSAGE value="wednesday_2_done" />
     <MESSAGE value="wednesday_3_done" />
-    <option name="LAST_COMMIT_MESSAGE" value="wednesday_3_done" />
+    <MESSAGE value="wednesday_4_predone" />
+    <option name="LAST_COMMIT_MESSAGE" value="wednesday_4_predone" />
   </component>
 </project>
