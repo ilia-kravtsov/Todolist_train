@@ -1,8 +1,9 @@
-import React, {FC, useState} from 'react';
+import React, {FC, memo, useState} from 'react';
 import {EditableTitleType} from "../types/types";
 import {TextField} from "@mui/material";
 
-export const EditableTitle: FC<EditableTitleType> = ({title, onChange}) => {
+export const EditableTitle: FC<EditableTitleType> = memo(({title, onChange}) => {
+    console.log('EditableTitle')
     let [editMode, setEditMode] = useState<boolean>(false)
     let [newTitle, setNewTitle] = useState<string>(title)
 
@@ -23,5 +24,5 @@ export const EditableTitle: FC<EditableTitleType> = ({title, onChange}) => {
                      variant={'filled'}
         />
         : <span onDoubleClick={ChangeMode}>{title}</span>
-};
+})
 

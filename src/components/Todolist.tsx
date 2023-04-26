@@ -1,37 +1,45 @@
-import React, {ChangeEvent, FC} from 'react';
-import {FilterValuesType, TodolistType} from "../types/types";
+import React, {FC, memo, useCallback} from 'react';
+import {FilterValuesType, TaskType, TodolistType} from "../types/types";
 import AddItemFrom from "./AddItemFrom";
 import {EditableTitle} from "./EditableTitle";
-import {Button, ButtonGroup, Checkbox} from "@mui/material";
+import {Button, ButtonGroup} from "@mui/material";
 import { Delete } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
+import {Task} from "./Task";
 
-export const Todolist: FC<TodolistType> = ({
+export const Todolist: FC<TodolistType> = memo(({
                                                title,
                                                tasks,
-                                               removeTask,
                                                changeFilter,
                                                addTask,
-                                               changeTaskStatus,
                                                filter,
                                                todolistId,
                                                removeTodolist,
-                                               changeTaskTitle,
                                                changeTodolistTitle
                                            }) => {
-
+    console.log('todo')
     const removeTodo = () => {
         removeTodolist(todolistId)
     }
-    const callbackFilter = (filterValue: FilterValuesType) => () => changeFilter(filterValue, todolistId)
-    const addTaskCallback = (value: string) => {
+    const callbackFilter = useCallback((filterValue: FilterValuesType) => () => changeFilter(filterValue, todolistId),[changeFilter, todolistId])
+    const addTaskCallback = useCallback((value: string) => {
         addTask(value, todolistId)
-    }
-    const changeTodolistTitleCallback = (newTitle: string) => {
+    },[addTask, todolistId])
+    const changeTodolistTitleCallback = useCallback((newTitle: string) => {
         changeTodolistTitle(newTitle, todolistId)
+    },[changeTodolistTitle, todolistId])
+
+    const getFilteredTasks = (newTasks: Array<TaskType>, filter: FilterValuesType): Array<TaskType> => {
+        switch (filter) {
+            case 'active':
+                return newTasks.filter(task => !task.isDone)
+            case 'completed':
+                return newTasks.filter(task => task.isDone)
+            default:
+                return newTasks
+        }
     }
-
-
+    const filteredTasks = getFilteredTasks(tasks[todolistId], filter)
     return (
         <div>
             <h3 className={'titleBtn'}>
@@ -41,33 +49,15 @@ export const Todolist: FC<TodolistType> = ({
                 </IconButton>
             </h3>
             <AddItemFrom addItem={addTaskCallback}/>
-            <ul>
-                {tasks.length
-                    ? tasks.map(task => {
-                        const onChangeBox = (e: ChangeEvent<HTMLInputElement>) => {
-                            changeTaskStatus(task.id, e.currentTarget.checked, todolistId)
-                        }
-                        const removeTaskHandler = () => removeTask(task.id, todolistId)
-
-                        const onChangeTitleCallback = (newTitle: string) => {
-                            changeTaskTitle(task.id, newTitle, todolistId)
-                        }
-                        return (
-                            <li key={task.id} className={task.isDone ? 'is-done' : ''}>
-                                <Checkbox
-                                       checked={task.isDone}
-                                       onChange={onChangeBox}
-                                />
-                                <EditableTitle title={task.title} onChange={onChangeTitleCallback}/>
-                                <IconButton onClick={removeTaskHandler}>
-                                    <Delete/>
-                                </IconButton>
-                            </li>
-                        )
-                    })
+            <div>
+                {filteredTasks.length
+                    ? filteredTasks.map(task => <Task key={task.id}
+                                                      todolistId={todolistId}
+                                                      task={task}
+                    />)
                     : <div>Add your task</div>
                 }
-            </ul>
+            </div>
             <div className={'buttonContainer'}>
                 <ButtonGroup>
                     <Button onClick={callbackFilter('all')}
@@ -86,5 +76,5 @@ export const Todolist: FC<TodolistType> = ({
             </div>
         </div>
     );
-};
+})
 

@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="wednesday_2_done">
-      <change afterPath="$PROJECT_DIR$/src/components/AppWithReducer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AppWithRedux.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Task.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemFrom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemFrom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppWithReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppWithReducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppWithRedux.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditableTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditableTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/state/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolists-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,7 @@
       <workItem from="1682410548711" duration="8765000" />
       <workItem from="1682424151517" duration="11896000" />
       <workItem from="1682487352711" duration="13548000" />
-      <workItem from="1682510466479" duration="3567000" />
+      <workItem from="1682510466479" duration="9605000" />
     </task>
     <task id="LOCAL-00001" summary="monday_1_done">
       <created>1682413023932</created>
@@ -224,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682498692447</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="wednesday_2_done">
+      <created>1682514414256</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682514414256</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

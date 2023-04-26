@@ -1,7 +1,7 @@
 export type TodolistType = {
     todolistId: string
     title: string
-    tasks: Array<TaskType>
+    tasks: TasksType
     filter: FilterValuesType
     removeTask: (id: string, todolistId: string) => void
     removeTodolist: (todolistId: string) => void
@@ -38,5 +38,10 @@ export type EditableTitleType = {
 }
 
 //export type TasksType = Array<TaskType>
+
+export type TaskComponentType = {
+    task: TaskType
+    todolistId: string
+}
 
 export type FilterValuesType = 'all' | 'active' | 'completed'
