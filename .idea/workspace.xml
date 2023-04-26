@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="tuesday_4_done">
-      <change afterPath="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/tasks-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/todolists-tasks-reducer.test.ts" afterDir="false" />
+    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="wednesday_2_done">
+      <change afterPath="$PROJECT_DIR$/src/components/AppWithReducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AppWithRedux.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/tasks-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/state/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolists-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/state/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +38,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "T:/IT/Projects/Todolist_train/src/state",
+    "last_opened_file_path": "T:/IT/Projects/Todolist_train/src/components",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -48,6 +51,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="T:\IT\Projects\Todolist_train\src\components" />
       <recent name="T:\IT\Projects\Todolist_train\src\state" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -140,7 +144,8 @@
       <updated>1682410545456</updated>
       <workItem from="1682410548711" duration="8765000" />
       <workItem from="1682424151517" duration="11896000" />
-      <workItem from="1682487352711" duration="9574000" />
+      <workItem from="1682487352711" duration="13548000" />
+      <workItem from="1682510466479" duration="3567000" />
     </task>
     <task id="LOCAL-00001" summary="monday_1_done">
       <created>1682413023932</created>
@@ -212,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682492942645</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="wednesday_1_done">
+      <created>1682498692447</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682498692447</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +251,8 @@
     <MESSAGE value="tuesday_2_done" />
     <MESSAGE value="tuesday_3_done" />
     <MESSAGE value="tuesday_4_done" />
-    <option name="LAST_COMMIT_MESSAGE" value="tuesday_4_done" />
+    <MESSAGE value="wednesday_1_done" />
+    <MESSAGE value="wednesday_2_done" />
+    <option name="LAST_COMMIT_MESSAGE" value="wednesday_2_done" />
   </component>
 </project>
