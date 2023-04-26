@@ -1,4 +1,4 @@
-import React, {FC, memo, useState} from 'react';
+import React, {FC, memo, useState, KeyboardEvent} from 'react';
 import {EditableTitleType} from "../types/types";
 import {TextField} from "@mui/material";
 
@@ -15,10 +15,17 @@ export const EditableTitle: FC<EditableTitleType> = memo(({title, onChange}) => 
         setEditMode(false)
         onChange(newTitle)
     }
+    const onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            setEditMode(false)
+            onChange(newTitle)
+        }
+    }
 
     return editMode
         ? <TextField value={newTitle}
                  onBlur={FixMode}
+                 onKeyDown={onKeyPress}
                  autoFocus
                  onChange={(e) => setNewTitle(e.currentTarget.value)}
                      variant={'filled'}

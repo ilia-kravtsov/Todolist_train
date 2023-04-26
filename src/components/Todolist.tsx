@@ -17,14 +17,16 @@ export const Todolist: FC<TodolistType> = memo(({
                                                removeTodolist,
                                                changeTodolistTitle
                                            }) => {
-    console.log('todo')
-    const removeTodo = () => {
+    console.log('Todolist')
+    const removeTodo = useCallback(() => {
         removeTodolist(todolistId)
-    }
-    const callbackFilter = useCallback((filterValue: FilterValuesType) => () => changeFilter(filterValue, todolistId),[changeFilter, todolistId])
+    }, [todolistId])
+    const callbackFilter = useCallback((filterValue: FilterValuesType) => () => changeFilter(filterValue, todolistId),[todolistId])
+
     const addTaskCallback = useCallback((value: string) => {
         addTask(value, todolistId)
-    },[addTask, todolistId])
+    },[todolistId])
+
     const changeTodolistTitleCallback = useCallback((newTitle: string) => {
         changeTodolistTitle(newTitle, todolistId)
     },[changeTodolistTitle, todolistId])
