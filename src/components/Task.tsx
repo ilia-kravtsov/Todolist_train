@@ -9,9 +9,9 @@ import {TaskComponentType} from "../types/types";
 export const Task: FC<TaskComponentType> = memo(({task, todolistId}) => {
 
     const dispatch = useDispatch()
-    const onChangeBox = (e: ChangeEvent<HTMLInputElement>) => {
+    const onChangeBox = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         dispatch(changeTaskStatusAC(task.id, e.currentTarget.checked, todolistId))
-    }
+    },[])
     const removeTaskHandler = useCallback(() => dispatch(removeTaskAC(task.id, todolistId)), [task.id, todolistId])
 
     const onChangeTitleCallback = useCallback((newTitle: string) => {

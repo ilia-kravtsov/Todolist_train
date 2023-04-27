@@ -25,10 +25,10 @@ export const Todolist: FC<TodolistType> = memo(({
         dispatch(addTaskAC(title, todolistId))
     }, [])
 
-    const changeTodolistFilter = useCallback((filterValue: FilterValuesType, todolistId: string) => {
+    const changeTodolistFilter = useCallback((filterValue: FilterValuesType) => () => {
         dispatch(changeTodolistFilterAC(todolistId, filterValue))
     }, [])
-    const changeTodolistTitle = useCallback((newTitle: string, todolistId: string) => {
+    const changeTodolistTitle = useCallback((newTitle: string) => {
         dispatch(changeTodolistTitleAC(todolistId, newTitle))
     }, [])
     const removeTodolist = useCallback((todolistId: string) => {
@@ -38,11 +38,6 @@ export const Todolist: FC<TodolistType> = memo(({
         removeTodolist(todolistId)
     }, [todolistId])
 
-    const callbackFilter = useCallback((filterValue: FilterValuesType) => () => changeTodolistFilter(filterValue, todolistId), [todolistId])
-
-    const changeTodolistTitleCallback = useCallback((newTitle: string) => {
-        changeTodolistTitle(newTitle, todolistId)
-    }, [changeTodolistTitle, todolistId])
 
     const getFilteredTasks = (newTasks: Array<TaskType>, filter: FilterValuesType): Array<TaskType> => {
         switch (filter) {
@@ -58,7 +53,7 @@ export const Todolist: FC<TodolistType> = memo(({
     return (
         <div>
             <h3 className={'titleBtn'}>
-                <EditableTitle title={title} onChange={changeTodolistTitleCallback}/>
+                <EditableTitle title={title} onChange={changeTodolistTitle}/>
                 <IconButton onClick={removeTodo}>
                     <Delete/>
                 </IconButton>
@@ -75,15 +70,15 @@ export const Todolist: FC<TodolistType> = memo(({
             </div>
             <div className={'buttonContainer'}>
                 <ButtonGroup>
-                    <Button onClick={callbackFilter('all')}
+                    <Button onClick={changeTodolistFilter('all')}
                             variant={filter === 'all' ? 'outlined' : 'contained'}
                     >All
                     </Button>
-                    <Button onClick={callbackFilter('active')}
+                    <Button onClick={changeTodolistFilter('active')}
                             variant={filter === 'active' ? 'outlined' : 'contained'}
                     >Active
                     </Button>
-                    <Button onClick={callbackFilter('completed')}
+                    <Button onClick={changeTodolistFilter('completed')}
                             variant={filter === 'completed' ? 'outlined' : 'contained'}
                     >Completed
                     </Button>

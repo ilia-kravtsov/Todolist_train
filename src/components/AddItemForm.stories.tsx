@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import AddItemFrom from "../components/AddItemFrom";
 
 const meta: Meta<typeof AddItemFrom> = {
-    title: 'Components/AddItemFrom',
+    title: 'Todolist/AddItemFrom',
     component: AddItemFrom,
     tags: ['autodocs'],
     argTypes: {
-
+        
     },
 };
 
