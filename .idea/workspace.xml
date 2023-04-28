@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="wednesday_4_beginDropTodo">
-      <change afterPath="$PROJECT_DIR$/integration/addItemForm.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration/setupTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AppWithRedux.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/EditableTitle.stories.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ReduxStoreProviderDecorator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Task.stories.tsx" afterDir="false" />
+    <list default="true" id="3563954b-5112-4ea6-bb23-e1196522f762" name="Changes" comment="wednesday_4_done">
+      <change afterPath="$PROJECT_DIR$/integration/__image_snapshots__/add-item-form-test-js-add-item-form-base-example-visually-looks-correct-1-snap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/todolistAPI.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/todolists-api.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddItemFrom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemFrom.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stories/AddItemForm.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,8 +114,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.jest:integration" />
         <item itemvalue="npm.storybook" />
+        <item itemvalue="npm.jest:integration" />
         <item itemvalue="npm.build-storybook" />
         <item itemvalue="Jest.property with todolistId should be deleted" />
         <item itemvalue="Jest.ids should be equals" />
@@ -144,7 +136,10 @@
       <workItem from="1682510466479" duration="14351000" />
       <workItem from="1682574096813" duration="5180000" />
       <workItem from="1682579511120" duration="953000" />
-      <workItem from="1682580525771" duration="914000" />
+      <workItem from="1682580525771" duration="3986000" />
+      <workItem from="1682601614085" duration="4323000" />
+      <workItem from="1682661082329" duration="7188000" />
+      <workItem from="1682677666995" duration="13935000" />
     </task>
     <task id="LOCAL-00001" summary="monday_1_done">
       <created>1682413023932</created>
@@ -251,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682527729718</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="wednesday_4_done">
+      <created>1682581824836</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682581824836</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +285,7 @@
     <MESSAGE value="wednesday_3_done" />
     <MESSAGE value="wednesday_4_predone" />
     <MESSAGE value="wednesday_4_beginDropTodo" />
-    <option name="LAST_COMMIT_MESSAGE" value="wednesday_4_beginDropTodo" />
+    <MESSAGE value="wednesday_4_done" />
+    <option name="LAST_COMMIT_MESSAGE" value="wednesday_4_done" />
   </component>
 </project>
