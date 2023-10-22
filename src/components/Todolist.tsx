@@ -1,5 +1,5 @@
-import React, {FC, memo, useCallback} from 'react';
-import {FilterValuesType, TasksType, TaskType, TodolistType} from "../types/types";
+import React, {FC, memo, useCallback, useEffect} from 'react';
+import {FilterValuesType, TaskDomainType, TasksType, TaskType, TodolistType} from "../types/types";
 import AddItemFrom from "./AddItemFrom";
 import {EditableTitle} from "./EditableTitle";
 import {Button, ButtonGroup} from "@mui/material";
@@ -7,8 +7,8 @@ import {Delete} from '@mui/icons-material'
 import {IconButton} from '@mui/material'
 import {Task} from "./Task";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../state/store";
-import {addTaskAC} from "../state/tasks-reducer";
+import {AppRootStateType, useAppDispatch} from "../state/store";
+import {addTaskAC, addTasksTC, getTasksTC} from "../state/tasks-reducer";
 import {changeTodolistFilterAC, changeTodolistTitleAC, RemoveTodolistAC} from "../state/todolists-reducer";
 
 export const Todolist: FC<TodolistType> = memo(({
@@ -16,13 +16,16 @@ export const Todolist: FC<TodolistType> = memo(({
                                                     filter,
                                                     todolistId,
                                                 }) => {
-    console.log('Todolist')
 
     const tasks = useSelector<AppRootStateType, TasksType>(state => state.tasks)
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(getTasksTC(todolistId))
+    }, [])
 
     const addTask = useCallback((title: string) => {
-        dispatch(addTaskAC(title, todolistId))
+        dispatch(addTasksTC(todolistId, title))
     }, [])
 
     const changeTodolistFilter = useCallback((filterValue: FilterValuesType) => () => {
@@ -39,7 +42,7 @@ export const Todolist: FC<TodolistType> = memo(({
     }, [todolistId])
 
 
-    const getFilteredTasks = (newTasks: Array<TaskType>, filter: FilterValuesType): Array<TaskType> => {
+    const getFilteredTasks = (newTasks: Array<TaskDomainType>, filter: FilterValuesType): Array<TaskDomainType> => {
         switch (filter) {
             case 'active':
                 return newTasks.filter(task => !task.isDone)
@@ -50,6 +53,7 @@ export const Todolist: FC<TodolistType> = memo(({
         }
     }
     const filteredTasks = getFilteredTasks(tasks[todolistId], filter)
+
     return (
         <div>
             <h3 className={'titleBtn'}>

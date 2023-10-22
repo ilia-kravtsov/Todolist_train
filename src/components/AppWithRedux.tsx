@@ -1,27 +1,31 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {TodolistsType} from "../types/types";
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
 import {Todolist} from "./Todolist";
 import {Menu} from "@mui/icons-material";
 import AddItemFrom from "./AddItemFrom";
-import {
-    AddTodolistAC,
-} from "../state/todolists-reducer";
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../state/store";
+import {AddTodolistAC, getTodosTC} from "../state/todolists-reducer";
+import {useSelector} from "react-redux";
+import {AppRootStateType, useAppDispatch} from "../state/store";
 
 export const AppWithRedux = () => {
-    console.log('App')
+
     const todolists = useSelector<AppRootStateType, Array<TodolistsType>>(state => state.todolists)
 
-    const dispatch = useDispatch()
+   // const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const addTodolist = useCallback((title: string) => {
         dispatch(AddTodolistAC(title))
     }, [])
 
+    useEffect(() => {
+            dispatch(getTodosTC()) // thunk вызывает middleware из стора здесь просто передаем
+    },[])
+
     const todolistComponents = todolists.length
         ? todolists.map(todolist => {
+
             return <Grid item key={todolist.id}>
                 <Paper style={{padding: '10px'}}>
                     <Todolist title={todolist.title}

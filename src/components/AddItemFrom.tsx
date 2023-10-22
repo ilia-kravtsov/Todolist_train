@@ -2,6 +2,7 @@ import React, {ChangeEvent, FC, KeyboardEvent, memo, useState} from 'react';
 import {AddItemFromType} from "../types/types";
 import {IconButton, TextField} from "@mui/material";
 import {AddBox} from "@mui/icons-material";
+import '../App.css'
 
 const AddItemFrom: FC<AddItemFromType> = memo(({addItem}) => {
     console.log('AddItemFrom')

@@ -1,3 +1,5 @@
+import {Task} from "../api/todolistAPI";
+
 export type TodolistType = {
     todolistId: string
     title: string
@@ -20,8 +22,10 @@ export type AddItemFromType = {
     addItem: (value: string) => void
 }
 
+export type TaskDomainType = Task & {isDone: boolean}
+
 export type TasksType = {
-    [key: string]: Array<TaskType>
+    [key: string]: Array<TaskDomainType>
 }
 
 export type EditableTitleType = {
@@ -32,7 +36,7 @@ export type EditableTitleType = {
 //export type TasksType = Array<TaskType>
 
 export type TaskComponentType = {
-    task: TaskType
+    task: TaskDomainType
     todolistId: string
 }
 
